@@ -1,14 +1,15 @@
 try
 {
-  $procDumpFolder = "$PSScriptRoot/obj";
-  mkdir "$procDumpFolder" -Force;
-  Invoke-WebRequest https://download.sysinternals.com/files/Procdump.zip -OutFile "$procDumpFolder/procdump.zip";
-  Expand-Archive "$procDumpFolder/procdump.zip" -DestinationPath "$procDumpFolder" -Force;
-
   $job = Start-Job {    
-    # $sleepTime = (1 * 20 * 60)
-    # Start-Sleep -Seconds $sleepTime;
-    $dumpsFolder = "$PSScriptRoot/artifacts/dumps";
+    $procDumpFolder = "./obj";
+    mkdir "$procDumpFolder" -Force;
+    $procDumpFolder = Resolve-Path $procDumpFolder;
+    Invoke-WebRequest https://download.sysinternals.com/files/Procdump.zip -OutFile "$procDumpFolder/procdump.zip";
+    Expand-Archive "$procDumpFolder/procdump.zip" -DestinationPath "$procDumpFolder" -Force;
+  
+    $sleepTime = (1 * 5 * 60)
+    Start-Sleep -Seconds $sleepTime;
+    $dumpsFolder = "./artifacts/dumps";
     mkdir $dumpsFolder;
     Write-Host $dumpsFolder;
     $processes = Get-Process dotnet*;
@@ -17,11 +18,13 @@ try
     
     $processes |
      Select-Object -ExpandProperty ID | 
-     ForEach-Object { &"$procDumpFolder/procdump.exe" -accepteula -ma $_ $dumpsFolder }
+     ForEach-Object { &"./obj/procdump.exe" -accepteula -ma $_ $dumpsFolder }
   }
-  ./run.ps1 default-build $args
-  Stop-Job $job
-  Remove-Job $job
+  Write-Host "Process dump capture job started. Running run.ps1 next";
+  ./run.ps1 default-build @args
+  Receive-Job $job
+  # Stop-Job $job
+  # Remove-Job $job
 }
 catch
 {
