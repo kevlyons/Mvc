@@ -42,7 +42,7 @@
     <MicrosoftAspNetCoreLocalizationRoutingPackageVersion>3.0.0-alpha1-10716</MicrosoftAspNetCoreLocalizationRoutingPackageVersion>
     <MicrosoftAspNetCoreMvcRazorExtensionsPackageVersion>3.0.0-a-alpha1-razor-parser-31862</MicrosoftAspNetCoreMvcRazorExtensionsPackageVersion>
     <MicrosoftAspNetCoreRangeHelperSourcesPackageVersion>3.0.0-alpha1-10716</MicrosoftAspNetCoreRangeHelperSourcesPackageVersion>
-    <MicrosoftAspNetCoreRazorDesignPackageVersion3.0.0-a-alpha1-razor-parser-31862</MicrosoftAspNetCoreRazorDesignPackageVersion>
+    <MicrosoftAspNetCoreRazorDesignPackageVersion>3.0.0-a-alpha1-razor-parser-31862</MicrosoftAspNetCoreRazorDesignPackageVersion>
     <MicrosoftAspNetCoreRazorLanguagePackageVersion>3.0.0-a-alpha1-razor-parser-31862</MicrosoftAspNetCoreRazorLanguagePackageVersion>
     <MicrosoftAspNetCoreRazorRuntimePackageVersion>3.0.0-a-alpha1-razor-parser-31862</MicrosoftAspNetCoreRazorRuntimePackageVersion>
     <MicrosoftAspNetCoreRazorTagHelpersTestingSourcesPackageVersion>3.0.0-a-alpha1-razor-parser-31862</MicrosoftAspNetCoreRazorTagHelpersTestingSourcesPackageVersion>
